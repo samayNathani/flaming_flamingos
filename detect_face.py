@@ -12,10 +12,11 @@ def detect_face(img_url):
     faces = face_cascade.detectMultiScale(gray, 1.1, 4)
     #     # Draw rectangle around the faces
     if len(faces) == 0:
-        print("NO FACE FOUND")
+        return False
     else:
         for (x, y, w, h) in faces:
             cv2.rectangle(img, (x, y), (x + w, y + h), (255, 0, 0), 2)
     # Display the output
-        cv2.imshow('img', cv2.cvtColor(img, cv2.COLOR_BGR2RGB))
-        cv2.waitKey()
+        #cv2.imshow('img', cv2.cvtColor(img, cv2.COLOR_BGR2RGB))
+        #cv2.waitKey()
+        return True
