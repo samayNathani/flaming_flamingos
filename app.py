@@ -1,11 +1,9 @@
 import tweepy
 import tokens
 from detect_face import detect_face
+import MyStreamListener
+from parsetweets import parseTweets
 
-
-def app():
-    api = bot()
-    get_tweets(api)
 
 
 def bot():
@@ -33,18 +31,33 @@ def bot():
 
 
 def get_tweets(api):
-    search_results = api.search(q="#blmprotest filter:images -filter:retweets", count=100)
-    for tweet in search_results:
-        user_name = tweet.user.screen_name
-        id = tweet.id_str
-        media = tweet.entities.get('media', [])
-        if len(media) != 0:
-            if detect_face(media[0]['media_url']):
+    """
+    myStream = tweepy.Stream(auth=api.auth, listener=MyStreamListener.MyStreamListener(api))
+    # Insert in the braces keywords for the search
+    myStream.filter(track=['Black Lives Matter','BLM','Protest'], languages=["en"])
+    for idx in range(len(MyStreamListener.listtemp)):
+        for photo in medialists:
+            if detect_face(photo):
                 try:
-                    api.update_status('@' + user_name + ' A face has been detected in this photo', id)
+                    api.update_status('@' + users + ' A face has been detected in this photo', ids)
                 except:
                     continue
-
-
+    """
+    searchterms = ["blm", "#blm", "blmprotest", "#blmprotest", "blm protest", "#justice", "justice", "Breonna Taylor", "#BreonnaTaylor", "#ElijahMcclain", "undercover cops", "unmarked uniforms", "#ACAB", "acab"]
+    for term in searchterms:
+        searchstr = term + " filter:images -filter:retweets"
+        search_results = api.search(q = searchstr, count=100)
+        for tweet in search_results:
+            user_name = tweet.user.screen_name
+            id = tweet.id_str
+            media = tweet.entities.get('media', [])
+            if len(media) != 0:
+                if detect_face(media[0]['media_url']):
+                    try:
+                        api.update_status('@' + user_name + ' A face has been detected in this photo', id)
+                    except:
+                        continue
 if __name__ == '__main__':
-    app()
+    api = bot()
+    while (1):
+        get_tweets(api)
