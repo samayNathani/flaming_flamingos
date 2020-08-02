@@ -1,0 +1,117 @@
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Twitter Hackathon</title>
+    <link href="twitterHome.css" rel="stylesheet" type="text/css" />
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+  </head>
+
+  <body>
+    <script src="script.js"></script>
+    
+    <!--
+    <header id="header-background">
+      <div class="logo"></div>
+      data-width= "300" data-height= "180"
+    </header>
+    -->
+
+    <div class="picture-header">
+
+    </div>
+    
+    <div class="header">
+
+
+
+        <a href="index.html"><img src="https://fontmeme.com/permalink/200802/256884eee810509391051fd3b170dc03.png" alt="black-lives-matter-font" border="0"></a>
+        
+      
+      <div class="header-right">
+        <!--<a class="active" href="#home">Home</a>-->
+        <a href="about.html">ABOUT</a>
+        <a href="resources.html">RESOURCES</a>
+        <a href="donate.html">DONATE</a>
+      </div>
+  
+
+    </div>
+
+    <!--
+    <span class="dot"></span>
+    <span class="dot"></span>
+    <span class="dot"></span>
+    -->
+
+
+    <div class="twitterborder">
+      <div class="table">
+        <div class="table-cell">
+      <a class="twitter-timeline" 
+      data-tweet-limit="4" href="https://twitter.com/BotProtests"  
+      data-width= "450" data-height= "180"></a>
+     </a> 
+      <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+        </div>
+      </div>
+    </div>
+<!--
+<div class="counter" data-count="150">0</div>
+<div class="counter" data-count="85">0</div>
+<div class="counter" data-count="2200">0</div>-->
+
+
+    
+
+<div class="circles-parent">
+    <p>&nbsp&nbspTweets Analyzed &nbsp&nbsp&nbsp&nbsp  Faces Detected  &nbsp&nbsp&nbsp&nbsp&nbsp&nbspLive Updates   </p>
+    <div id="shiva"><span class="count" style= padding 5px;>40</span></div>
+    <div id="shiva"><span class="count" style= padding 10px;>21</span></div>
+    <div id="shiva"><span class="count" style= padding 10px;>81</span></div>
+    <div style="clear:both"></div>
+
+
+
+
+ <style>
+      h5{
+        text-align: center;
+        //margin-bottom: 50%;
+        word-wrap: break-word;
+        width: 840px;
+        margin-left: -25px;
+        padding-top: 1px;
+        margin-top: -170px;
+      }
+ </style>
+
+            <h5>Protest Parrot analyzes tweets with images. If a face is detected, we offer resources to report the issue. Live news regarding protests is tweeted out when needed. </h5>
+</div>
+
+<!--<p style="font-size:25px">Protect your privacy and your protests with Protest Parrot! </p>-->
+
+<center>
+<div class="bot-quote">
+    <a href="https://twitter.com/BotProtests?ref_src=twsrc%5Etfw" class="twitter-follow-button" data-show-count="false">Follow @BotProtests</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+</div>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script>
+        $('.count').each(function () {
+            $(this).prop('Counter', 0).animate({
+                Counter: $(this).text()
+            }, {
+                duration: 5000,
+                easing: 'swing',
+                step: function (now) {
+                    $(this).text(Math.ceil(now));
+                }
+            });
+        });
+  </script>
+
+  </body>
+
+</html>
